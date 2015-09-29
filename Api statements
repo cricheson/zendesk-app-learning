@@ -1,0 +1,8 @@
+curl https://whalelava.zendesk.com/api/v2/tickets/111.json -v -u christian.richeson@gmail.com
+curl https://{subdomain}.zendesk.com/api/v2/suspended_tickets.json \
+  -v -u {email_address}:{password}
+  
+  
+  
+  noficication documentation
+  https://developer.zendesk.com/apps/docs/agent/services
