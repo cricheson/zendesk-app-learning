@@ -6,7 +6,7 @@
     },
 
  //sets tickets displayed per page   
- per_page : 100, 
+ per_page : 3, 
  max_pages : 1,
     
     
@@ -43,7 +43,7 @@
 		    else{
 			 //function that grabs the data one page at a time
 			    this.max_pages = pages;
-			    this.fetchpage(2);
+			    this.fetchpage(1);
 			//function that parses data
 		    }
     });
@@ -51,7 +51,18 @@
   
       fetchpage: function(x){
 	 this.ajax('fetchsuspendedtickets',x ).then(function(data){  
-
+		if (this.parsedata(data)){
+				services.notify('it works', 'error', 5000);
+			}
+			else{
+				
+				if (x < this.max_pages){
+					this.fetchpage(x+1);
+				}
+				else{
+					services.notify('nothing found', 'error', 5000);
+				}
+			}
    });		 
 	      
  },
