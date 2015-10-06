@@ -1,4 +1,4 @@
-# App name
+# Suspended ticket notification app
 
 This app checks if the requestor of a ticket opened by an agent has any suspended tickets and then provides a notification.
 
