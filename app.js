@@ -34,7 +34,7 @@
 	            if (pages <= 1){
 			console.log(this.parsedata(data));
 			if (this.parsedata(data)){
-				services.notify('it works', 'error', 5000);
+				services.notify('The requestor for this ticket has a suspended ticket', 'error', 5000);
 			}
 			else{
 				services.notify('nothing found', 'error', 5000);
@@ -52,7 +52,7 @@
       fetchpage: function(x){
 	 this.ajax('fetchsuspendedtickets',x ).then(function(data){  
 		if (this.parsedata(data)){
-				services.notify('it works', 'error', 5000);
+				services.notify('The requestor for this ticket has a suspended ticket', 'error', 5000);
 			}
 			else{
 				
