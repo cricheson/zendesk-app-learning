@@ -20,14 +20,13 @@
   },
 
 
-  
+//Pulls the requestor and sets it to currentuser  
     getRequester: function() {
       var currentUser = this.ticket().requester().email();
       return currentUser;
 },
     growlIt: function() {
       var msg  = 'The current user is %@ :)';
-     // services.notify(msg.fmt(this.getRequester()), 'error', 5 * 1000);
       this.ajax('fetchsuspendedtickets',1 ).then(function(data){
 		    console.log(data.count);
 		    var pages = data.count / this.per_page;
@@ -48,7 +47,7 @@
 		    }
     });
   },
-  
+//grabs the pages based on the max pages and per_page variables  
       fetchpage: function(x){
 	 this.ajax('fetchsuspendedtickets',x ).then(function(data){  
 		if (this.parsedata(data)){
@@ -66,7 +65,7 @@
    });		 
 	      
  },
- 
+ // checks to see if the requestor has any suspended tickets, and then returns either true or false
      parsedata: function(data){
 	     var that = this
 	     var tickets = data.suspended_tickets.filter(function(ticket) {
@@ -77,11 +76,7 @@
 	     console.log(data.suspended_tickets);
 	     return tickets.length != 0;
 	     
-	     
-	//if content contains email address
-		//send message
-	//else
-	     //run parse data again
+
 	     
      }
      
